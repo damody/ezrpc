@@ -42,9 +42,6 @@ ezrpc_server_mqtt("mqtt://127.0.0.1:1883")
 // or
 // init rpc on server
 ezrpc_server_tcp("tcp://0.0.0.0:3333")
-// or
-// init rpc on server
-ezrpc_server_http("http://0.0.0.0:8080")
 
 // call async rpc for random client
 rpc_add(5, 6).await;
@@ -61,13 +58,11 @@ rpc_id_sub("clientid",5, 6);
 init on client
 ```rust
 // init on client
-ezrpc_client_init_mqtt("mqtt://127.0.0.1:1883")
+ezrpc_client_init_mqtt("mqtt://127.0.0.1:1883", "clientid");
 
 // init on client
-ezrpc_client_init_tcp("mqtt://127.0.0.1:3333")
+ezrpc_client_init_tcp("mqtt://127.0.0.1:3333", "clientid");
 
-// init on client
-ezrpc_client_init_http("mqtt://127.0.0.1:8080")
 ```
 # Check list
 - [ ] rpc macro base
@@ -75,4 +70,3 @@ ezrpc_client_init_http("mqtt://127.0.0.1:8080")
 - [ ] blocking rpc
 - [ ] rpc on mqtt
 - [ ] rpc on tcp
-- [ ] rpc on http
